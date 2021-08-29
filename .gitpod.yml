@@ -6,14 +6,10 @@ ports:
     onOpen: open-preview
 
 tasks:
-  - name : update
-    init: composer update && gp sync-done update
-    command: echo "Composer update"
-
   - name : server start
-    init : gp sync-await update
+    init : composer update
     command : symfony server:start
-    
+
 vscode:
   extensions:
     - felixfbecker.php-debug
